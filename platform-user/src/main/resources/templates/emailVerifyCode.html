@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rec_Platform</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 50px;
+        background: #f1f1f1;
+      }
+      .container {
+        width: 40%;
+        height: 100%;
+        margin: 0 auto;
+        background-color: #f1f1f1;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* align-items: center; */
+      }
+      .title {
+        width: 100%;
+        height: 80px;
+        font-size: 24px;
+        line-height: 110px;
+        font-weight: bold;
+        color: #354f52;
+        text-align: center;
+        /* background-color: #52796f; */
+        margin: 0;
+      }
+      .context {
+        padding: 0 30px;
+      }
+      .context p {
+        font-size: 16px;
+        line-height: 30px;
+        color: #354f52;
+        margin: 0;
+      }
+      .context::before,
+      .context::after {
+        content: "";
+        display: block;
+        width: 80%;
+        margin: 30px auto;
+        height: 1px;
+        background-color: #cad2c5;
+      }
+      .code {
+        display: block;
+        width: 123px;
+        height: 50px;
+        font-size: 20px;
+        line-height: 50px;
+        margin: 50px auto;
+        font-weight: bold;
+        color: #000;
+        text-align: center;
+        background-color: #84a98c;
+        color: #f0f0f0;
+        border-radius: 10px;
+        letter-spacing: 2px;
+      }
+      .context .text {
+        text-indent: 2em;
+        font-size: 14px;
+        line-height: 30px;
+        color: #354f52;
+        margin: 0;
+      }
+      .footer {
+        width: 100%;
+        height: 80px;
+        font-size: 14px;
+        color: #354f52;
+        text-align: center;
+        /* margin: 0; */
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">请验证您的邮箱</h1>
+      <div class="context">
+        <p style="font-weight: bold">您的验证码为：</p>
+        <span th:text="${code}" class="code">123456</span>
+        <p class="text">此验证码将在10分钟后失效。</p>
+        <p class="text">如非本人操作， 请忽略此邮件</p>
+      </div>
+      <footer class="footer">
+        <p>系统邮件， 请勿回复</p>
+        <p>Rec_Platform</p>
+      </footer>
+    </div>
+  </body>
+</html>

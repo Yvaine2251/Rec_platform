@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="com.platform.points.mapper.GraphSolveMapper">
+
+
+    <select id="selectQuestionPoint" resultType="com.alibaba.fastjson.JSONObject">
+        select
+        co_point.id as point_id,ex_question_point.question_id
+        from co_point
+        left join ex_question_point
+        on co_point.id = ex_question_point.point_id
+        <where>
+            course_id = #{course_id}
+        </where>
+    </select>
+
+    <select id="selectQuestionStudent" resultType="com.alibaba.fastjson.JSONObject">
+        select
+        ex_paper_student_answer.student_id,ex_paper_student_answer.question_id,
+        case when ex_paper_student_answer.is_right is null then '0' else ex_paper_student_answer.is_right end as is_right
+        from ex_question
+        INNER JOIN ex_paper_student_answer
+        on ex_paper_student_answer.question_id = ex_question.question_id
+        <where>
+            course_id = #{course_id}
+        </where>
+    </select>
+</mapper>

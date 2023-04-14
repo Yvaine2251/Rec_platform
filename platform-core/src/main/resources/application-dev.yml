@@ -1,0 +1,52 @@
+server:
+  port: 8088
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/platform?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+#      url: jdbc:mysql://43.139.104.227:3306/rec-platform?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+      username: root
+      password: suriiii
+
+  redis:
+#    host: 192.168.222.134
+    host: 43.139.104.227
+
+    port: 6699
+    password: Error13632023866
+    lettuce:
+      pool:
+        max-active: 8 # 最大连接
+        max-idle: 8 # 最大空闲连接
+        min-idle: 0 # 最小空闲连接
+        max-wait: 100ms # 连接等待时间
+
+
+#  cache:
+#    redis:
+#      time-to-live: 1800000 # 设置缓存过期时间
+
+
+jwt:
+  secret: sub
+  deadtime: 7200000
+  flush: 1800000
+
+
+mybatis-plus:
+  global-config:
+    db-config:
+#      id-type: auto  #表ID自增规则 +1
+
+      # 添加sql会进行逻辑删除字段的判断
+      logic-delete-field:  delFlag
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+
+  configuration:
+    map-underscore-to-camel-case: true #全局
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  #控制输出日志
+#    lazy-loading-enabled: true #开启延迟加载（2022.7.11）
+

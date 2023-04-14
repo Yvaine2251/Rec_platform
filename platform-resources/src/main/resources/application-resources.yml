@@ -1,0 +1,32 @@
+aliyun:
+  oss:
+    file:
+      endpoint: oss-cn-shenzhen.aliyuncs.com
+      keyId: LTAI5tG7Mg57i4jZ8uoGUHvn
+      keySecret: epFpV8Ck3oMXNbuhTxtbHk2V8cfxqs
+      bucketName: learniq
+
+spring:
+  servlet:
+    multipart:
+#      单个文件最大值
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+
+#spring:
+#  servlet:
+#    multipart:
+#      max-file-size: 10MB
+#      max-request-size: 10MB
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/rec-platform?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+#    username: root
+#    password: root
+#mybatis-plus:
+#  #配置日志
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#logging.level.org.springframework.boot.autoconfigure: error
+#  #扫描通用枚举的包
+# # type-enums-package: com.platform.enums

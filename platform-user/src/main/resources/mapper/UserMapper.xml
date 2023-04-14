@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.platform.mapper.UserMapper">
+    <select id="getCourseAndTeacherInfo" parameterType="string" resultType="com.platform.vo.LearnClassVo">
+        SELECT
+            c.course_id as courseId,
+            c.course_name as courseName,
+            c.course_cover as cover,
+            u.name as teacher
+        FROM co_course_class cc
+        LEFT JOIN co_course c ON cc.course_id = c.course_id
+        LEFT JOIN us_user u ON cc.teacher_id = user_id
+        where u.user_id = #{userId}
+    </select>
+</mapper>
